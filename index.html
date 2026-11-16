@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIWA Mini Launchpad</title>
+  <script type="module" crossorigin src="./assets/index-CvybhkeT.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Krpgk6Dn.css">
+</head>
+<body>
+  <header>
+    <h1>GIWA Mini Launchpad</h1>
+    <p class="sub">Bonding-curve token launches on GIWA Sepolia, built with <code>@ammora-protocol/sdk</code> 0.3.9. Testnet only.</p>
+    <button id="connect">Connect wallet</button>
+    <span id="account"></span>
+  </header>
+  <main>
+    <section>
+      <h2>Launch a token</h2>
+      <div class="grid">
+        <label>Config ID <input id="cfg" type="number" min="1" value="1" /></label>
+        <label>Name <input id="name" placeholder="My Token" /></label>
+        <label>Symbol <input id="symbol" placeholder="MTK" /></label>
+        <label>Metadata URI <input id="meta" placeholder="ipfs://... or https://..." /></label>
+      </div>
+      <button id="checkCfg">Check config</button>
+      <button id="launch">Launch</button>
+      <pre id="launchOut"></pre>
+    </section>
+    <section>
+      <h2>Recent launches <button id="refresh">Refresh</button></h2>
+      <p class="sub">LaunchCreated events from the Ammora V4 factory (last ~50k blocks).</p>
+      <table>
+        <thead><tr><th>Token</th><th>Config</th><th>Status</th><th>Progress</th><th>Reserve (WETH)</th><th></th></tr></thead>
+        <tbody id="launches"><tr><td colspan="6">Loading…</td></tr></tbody>
+      </table>
+    </section>
+    <section id="trade" hidden>
+      <h2>Trade <span id="tradeTitle"></span></h2>
+      <div class="grid">
+        <label>Side
+          <select id="side"><option value="buy">Buy (ETH → token)</option><option value="sell">Sell (token → WETH)</option></select>
+        </label>
+        <label>Amount <input id="amount" value="0.001" /></label>
+        <label>Slippage (bps) <input id="slip" type="number" value="100" /></label>
+      </div>
+      <button id="quote">Quote</button>
+      <button id="swap">Swap</button>
+      <pre id="tradeOut"></pre>
+    </section>
+  </main>
+  <footer>Unofficial community build on the public Ammora SDK. GIWA Sepolia testnet assets have no value.</footer>
+</body>
+</html>
